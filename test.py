@@ -8,10 +8,7 @@ import pandas as pd
 import io
 import XML_work
 
-def linker(name):
-    #print(name)
-    #print(requests.get("https://api.github.com/repos/"+name+"client_id=03ca2f80e00559fe7157&client_secret=70f59b63bd0180a027852277376723fbf06dfb27").json())
-    token = "3742dc97750abb3880b93a86f0e320547776c4e9"
+    
 username=input("ВАШ ЛОГИН НА ГИТХАБЕ")
 #print(requests.get('https://api.github.com/users/'+username+'?username='+token).json())
 password = getpass()
@@ -122,7 +119,7 @@ for link in links:
     path = path.replace(".git", "")
     deepWatch('./'+path)
 
-    error = os.system("D:\\Programs\\CPPCheck\\cppcheck.exe -q -j4 --enable=performance,portability,warning,style " + path+" 2>> errors_cpp.txt")
+    error = os.system("./cppcheck.exe -q -j4 --enable=performance,portability,warning,style " + path+" 2>> errors_cpp.txt")
     cpp_errors = open("errors_cpp.txt")
     cpp_errors_number = 0
     XML_work.createXML("cpp_error_codes_"+ path +".xml")
